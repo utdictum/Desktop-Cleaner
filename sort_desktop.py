@@ -34,10 +34,4 @@ file_mappings = {
 desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
 #os.listdir(desktop_path) list all in the file and directories in the constructed desktop directory
 #os.path.isfile(os.path.join(desktop_path, f)) checks if file then joins constructed desktop directory to the f if file
-files = []
-
-for f in os.listdir(desktop_path):
-    # construct the full path of the item
-    full_path = os.path.join(desktop_path, f)
-    if os.path.isfile(full_path):
-        files.append(f)
+files = [f for f in os.listdir(desktop_path) if os.path.isfile(os.path.join(desktop_path, f))]
