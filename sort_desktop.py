@@ -39,7 +39,7 @@ files = [f for f in os.listdir(desktop_path) if os.path.isfile(os.path.join(desk
 # MOVING FILES
 for file in files:
     #extract file extension based on name
-    file_extension = os.path.splitext(file)[1]
+    file_extension = os.path.splitext(file)[1].lower()
 
     if file_extension in file_mappings:
         #if file in extension in mapping retainn folder name that matches files type
