@@ -51,5 +51,16 @@ for file in files:
         file_current_location = os.path.join(desktop_path, file)
         file_new_location = os.path.join(folder_path, file)
         #function to move form argument mapping current location to new
-        ##THIS WILL OVERWIRTE FIX THIS
+        ##FIX FOR OVERWRITING ISSUE
+        if os.path.exists(file_new_location):
+            base, extension = os.path.splitext(file)
+            i = 1
+            new_file_name = f"{base}_{i}{extension}"
+            new_file_location = os.path.join(folder_path, new_file_name)
+            while os.path.exists(new_file_location):
+                i += 1
+            new_file_name = f"{base}_{i}{extension}"
+            new_file_location = os.path.join(folder_path, new_file_name)
+
+        file_new_location = new_file_location
         shutil.move(file_current_location, file_new_location)
