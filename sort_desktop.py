@@ -43,6 +43,13 @@ for file in files:
     if file_extension in file_mappings:
         #if file in extension in mapping retainn folder name that matches files type
         folder_name = file_mappings[file_extension]
-        #construct path to folder and if folder exists do something
         folder_path = os.path.join(desktop_path, folder_name)
-        if os.path.exists(folder_path):
+        #if folder with name doesnt exista make it
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+        #construct file to current location and new     
+        file_current_location = os.path.join(desktop_path, file)
+        file_new_location = os.path.join(folder_path, file)
+        #function to move form argument mapping current location to new
+        ##THIS WILL OVERWIRTE FIX THIS
+        shutil.move(file_current_location, file_new_location)
