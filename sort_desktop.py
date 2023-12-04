@@ -29,3 +29,6 @@ file_mappings = {
     '.pat': 'CorelPainter',
 }
 
+#os.path.expanduser('~') ind the home directory of the current user, ~ being shorthand for home directory
+#os.path.join joins home directory with desktop so its independent from windows 
+desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
