@@ -29,6 +29,15 @@ file_mappings = {
     '.pat': 'CorelPainter',
 }
 
-#os.path.expanduser('~') ind the home directory of the current user, ~ being shorthand for home directory
+#os.path.expanduser('~') find the home directory of the current user, ~ being shorthand for home directory
 #os.path.join joins home directory with desktop so its independent from windows 
 desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
+#os.listdir(desktop_path) list all in the file and directories in the constructed desktop directory
+#os.path.isfile(os.path.join(desktop_path, f)) checks if file then joins constructed desktop directory to the f if file
+files = []
+
+for f in os.listdir(desktop_path):
+    # construct the full path of the item
+    full_path = os.path.join(desktop_path, f)
+    if os.path.isfile(full_path):
+        files.append(f)
