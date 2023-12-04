@@ -43,3 +43,6 @@ for file in files:
     if file_extension in file_mappings:
         #if file in extension in mapping retainn folder name that matches files type
         folder_name = file_mappings[file_extension]
+        #construct path to folder and if folder exists do something
+        folder_path = os.path.join(desktop_path, folder_name)
+        if os.path.exists(folder_path):
